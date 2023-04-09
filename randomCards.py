@@ -1,5 +1,6 @@
 import random
 from datetime import datetime
+from secrets import token_hex
 from pymongo import MongoClient
 
 client = MongoClient("mongodb+srv://username:SWEpassword@sweproject.wweidor.mongodb.net/?retryWrites=true&w=majority")
@@ -145,12 +146,17 @@ def printAllCards():
     print(list(rare.find()))
     print(list(superRare.find()))
 
-
 def main():
     id = input("user id: \n")
     createUser(id)
     openPack(id)
     viewUserCards(id)
+    print(token_hex(16))
+
+    # OAUTH 0 ---> user authentication
+    # NODEJS/REACT ----> Frontend
+    # Python + Flask ---> Backend
+    # MONGODB ---> Card Collection, Storage
 
 
 if __name__ == "__main__":
